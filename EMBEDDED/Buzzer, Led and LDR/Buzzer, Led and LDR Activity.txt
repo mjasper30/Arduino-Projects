@@ -1,0 +1,41 @@
+// C++ code
+//
+const int buzzerPin = 5;
+byte green = 6;
+byte red = 4;
+byte yellow = 2;
+int analogLDR = A0;
+int ldrReading;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(red, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  
+  pinMode(analogLDR, INPUT);
+}
+
+void loop()
+{
+  ldrReading = analogRead(analogLDR);
+  analogWrite(analogLDR, ldrReading);
+  
+  if(ldrReading > 50){
+  	noTone(buzzerPin);
+    digitalWrite(green, LOW);
+    digitalWrite(red, LOW);
+    digitalWrite(yellow, LOW);
+  }else{
+  	tone(buzzerPin, ldrReading, 500);
+    digitalWrite(green, HIGH);
+    digitalWrite(red, HIGH);
+    digitalWrite(yellow, HIGH);
+  	delay(500);
+  }
+  
+  Serial.println(ldrReading);
+  delay(500);
+}

@@ -1,0 +1,45 @@
+// C++ code
+//                                                                                                                                       
+
+const int potentiometerRed = A0;
+const int potentiometerGreen = A1;
+const int potentiometerBlue = A2;
+
+int analogRed = 3;
+int analogGreen = 6;
+int analogBlue = 5;
+
+int potentiometerRedReading;
+int potentiometerGreenReading;
+int potentiometerBlueReading;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(potentiometerRed, INPUT);
+  pinMode(potentiometerGreen, INPUT);
+  pinMode(potentiometerBlue, INPUT);
+  
+  pinMode(analogRed, OUTPUT);
+  pinMode(analogGreen, OUTPUT);
+  pinMode(analogBlue, OUTPUT);
+}
+
+void loop()
+{
+  potentiometerRedReading = map(analogRead(potentiometerRed), 0, 1023, 0, 255);
+  potentiometerGreenReading = map(analogRead(potentiometerGreen), 0, 1023, 0, 255);
+  potentiometerBlueReading = map(analogRead(potentiometerBlue), 0, 1023, 0, 255);
+  
+  analogWrite(analogRed, potentiometerRedReading); //analogWrite(pin, value)
+  analogWrite(analogGreen, potentiometerGreenReading); //digitalWrite(pin, HIGH OR LOW)
+  analogWrite(analogBlue, potentiometerBlueReading);
+  
+  Serial.print("Red: ");
+  Serial.println(potentiometerRedReading);
+  Serial.print("Green: ");
+  Serial.println(potentiometerGreenReading);
+  Serial.print("Blue: ");
+  Serial.println(potentiometerBlueReading);
+  delay(500);
+}

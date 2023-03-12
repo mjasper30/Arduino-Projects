@@ -1,0 +1,21 @@
+// C++ code
+//
+#include <Adafruit_LiquidCrystal.h>
+
+int seconds = 0;
+
+Adafruit_LiquidCrystal lcd(0);
+
+void setup()
+{
+  lcd.begin(16, 2);
+  lcd.setCursor(3, 0);
+  lcd.rightToLeft();
+  lcd.print("Jasper Macaraeg");
+}
+
+void loop()
+{
+  lcd.scrollDisplayLeft();
+  delay(1000);
+}

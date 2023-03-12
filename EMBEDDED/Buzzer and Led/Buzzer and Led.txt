@@ -1,0 +1,15 @@
+// C++ code
+//
+int buzzerPin = 2;
+void setup()
+{
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop()
+{
+  tone(buzzerPin, 20, 3000);
+  delay(5000);
+  noTone(buzzerPin);
+  //delay(5000);
+}

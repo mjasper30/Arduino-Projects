@@ -1,0 +1,30 @@
+// C++ code
+//
+byte ledPin2 = 2;
+byte ledPin4 = 4;
+byte ledPin7 = 7;
+
+void setup()
+{
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin4, OUTPUT);
+  pinMode(ledPin7, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(ledPin2, HIGH);
+  delay(1000);                                                                       
+  digitalWrite(ledPin2, LOW);
+  delay(1000); 
+  
+  digitalWrite(ledPin4, HIGH);
+  delay(1000); 
+  digitalWrite(ledPin4, LOW);
+  delay(1000); 
+  
+  digitalWrite(ledPin7, HIGH);
+  delay(1000); 
+  digitalWrite(ledPin7, LOW);
+  delay(1000); 
+}

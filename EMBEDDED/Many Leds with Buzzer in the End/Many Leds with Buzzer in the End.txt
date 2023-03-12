@@ -1,0 +1,36 @@
+// C++ code
+//
+int buzzerPin = 13;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop()
+{
+  for(int i=2; i<=13; i++){
+    if(i <= 6){
+      digitalWrite(i, HIGH);
+      delay(500); // Wait for 1000 millisecond(s)
+      digitalWrite(i, LOW);
+      delay(500); // Wait for 1000 millisecond(s)
+    }else if(i <= 11){
+      digitalWrite(i, HIGH);
+      delay(1000); // Wait for 1000 millisecond(s)
+      digitalWrite(i, LOW);
+      delay(1000); // Wait for 1000 millisecond(s)
+    }else if(i <= 13){
+      tone(buzzerPin, 1000, 3000);
+      digitalWrite(i, HIGH);
+      digitalWrite(i+1, HIGH);
+      delay(4000); // Wait for 1000 millisecond(s)
+      noTone(buzzerPin);
+      digitalWrite(i, LOW);
+      digitalWrite(i+1, LOW);
+      delay(500); // Wait for 1000 millisecond(s)
+    }
+      
+  }
+}

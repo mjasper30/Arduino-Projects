@@ -1,0 +1,35 @@
+int LED = A1;
+const int gas = 0;
+int MQ2pin = A0;
+int buzzer = 3;
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  float sensorValue,MQ2pin;
+sensorValue = analogRead(MQ2pin); // read analog input pin 0
+
+  if(sensorValue >= 470){
+    digitalWrite(LED,HIGH);
+    Serial.print("Sensor Value: ");
+    Serial.println(sensorValue);
+    Serial.println(" |SMOKE DETECTED");
+    tone(buzzer, 700, 1000);
+    delay(500);
+  	noTone(buzzer);
+  }
+  else{
+  	digitalWrite(LED,LOW);
+    Serial.print("Sensor Value: ");
+    Serial.println(sensorValue);
+    Serial.println(" |NO SMOKE DETECTED");
+  } 
+  delay(500);
+}
+	float getsensorValue(int pin){
+  	return (analogRead(pin));
+}

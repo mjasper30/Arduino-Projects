@@ -1,0 +1,22 @@
+// C++ code
+//
+int buttonPin = 2;
+int ledPin = 3;
+int buttonState = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop()
+{
+  buttonState = digitalRead(buttonPin);
+  if(buttonState != 0){
+  	digitalWrite(ledPin, HIGH);
+  }else{
+    digitalWrite(ledPin, LOW);
+  }
+}
